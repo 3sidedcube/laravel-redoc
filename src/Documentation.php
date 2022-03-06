@@ -9,13 +9,21 @@ use Illuminate\Support\Str;
 class Documentation
 {
     /**
+     * The instance of the Filesystem.
+     *
+     * @var Filesystem
+     */
+    protected Filesystem $files;
+
+    /**
      * Create a new documentation instance.
      *
      * @param  Filesystem  $files
      * @return void
      */
-    public function __construct(protected Filesystem $files)
+    public function __construct(Filesystem $files)
     {
+        $this->files = $files;
     }
 
     /**
