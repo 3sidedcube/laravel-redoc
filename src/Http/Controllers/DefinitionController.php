@@ -3,7 +3,6 @@
 namespace ThreeSidedCube\LaravelRedoc\Http\Controllers;
 
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use ThreeSidedCube\LaravelRedoc\Documentation;
