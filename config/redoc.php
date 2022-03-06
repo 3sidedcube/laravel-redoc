@@ -36,7 +36,7 @@ return [
     |
     | You can automatically replace variables in your OpenAPI definitions by
     | adding a key value pair to the array below. This will replace any
-    | instances of :key with the the given value.
+    | instances of :key with the given value.
     |
     */
 
