@@ -4,6 +4,7 @@ namespace ThreeSidedCube\LaravelRedoc;
 
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Str;
 
 class Documentation
 {
@@ -33,8 +34,12 @@ class Documentation
             return null;
         }
 
-        // TODO: replace any variables
+        $contents = $this->files->get($path);
 
-        return $this->files->get($path);
+        foreach (config('redoc.variables') as $key => $value) {
+            $contents = str_replace(':' . Str::slug($key, '_'), $value, $contents);
+        }
+
+        return $contents;
     }
 }

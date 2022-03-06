@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'path' => 'docs/{version}/api',
+    'path' => 'docs/api',
 
     /*
     |--------------------------------------------------------------------------
@@ -28,5 +28,18 @@ return [
     */
 
     'directory' => 'openapi',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Variables
+    |--------------------------------------------------------------------------
+    |
+    | You can automatically replace variables in your OpenAPI definitions by
+    | adding a key value pair to the array below. This will replace any
+    | instances of :key with the the given value.
+    |
+    */
+
+    'variables' => [],
 
 ];
