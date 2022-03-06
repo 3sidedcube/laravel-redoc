@@ -16,11 +16,11 @@ class RedocServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__.'/../config/redoc.php' => config_path('redoc.php'),
-            ], 'config');
+            ], 'redoc-config');
 
             $this->publishes([
-                __DIR__.'/../resources/views' => public_path('resources/views/vendor/redoc'),
-            ], 'views');
+                __DIR__.'/../resources/views' => resource_path('views/vendor/redoc'),
+            ], 'redoc-views');
         }
 
         $this->loadRoutesFrom(__DIR__ . '/../routes/redoc.php');
