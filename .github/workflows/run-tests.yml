@@ -13,7 +13,7 @@ jobs:
         laravel: [ ^8.0, ^9.0 ]
         exclude:
           - php: 7.4
-            laravel: 9
+            laravel: ^9.0
 
     name: P${{ matrix.php }} - L${{ matrix.laravel }}
 
