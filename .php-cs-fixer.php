@@ -35,7 +35,7 @@ $rules = [
         'on_multiline' => 'ensure_fully_multiline',
         'keep_multiple_spaces_after_comma' => true,
     ],
-    'new_with_braces' => false,
+    'new_with_parentheses' => false,
     'single_quote' => true,
 ];
 
