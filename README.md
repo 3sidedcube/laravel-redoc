@@ -12,6 +12,17 @@
 
 This package provides an easy way for rendering API documentation using OpenAPI and Redoc.
 
+## Requirements
+
+- PHP 7.4 or higher
+- Laravel 8.0 or higher
+
+Composer will automatically ensure compatible versions:
+- **PHP 7.4**: Works with Laravel 8
+- **PHP 8.0**: Works with Laravel 8-9
+- **PHP 8.1**: Works with Laravel 8-10
+- **PHP 8.2+**: Works with Laravel 8-13
+
 ## Installation
 
 You can install the package via composer:
