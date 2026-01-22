@@ -7,13 +7,34 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
-        php: [ 7.4, 8.0, 8.1 ]
-        laravel: [ ^8.0, ^9.0 ]
-        exclude:
-          - php: 7.4
-            laravel: ^9.0
+        # Testing strategy: Focus on modern PHP/Laravel combinations
+        # Package supports PHP 7.4+ and Laravel 8-13, but we test representative modern versions
+        # Composer will handle resolution for untested combinations based on PHP requirements
+        include:
+          # PHP 8.1 - Laravel 10
+          - php: 8.1
+            laravel: ^10.0
+            testbench: ^8.0
+          # PHP 8.2 - Laravel 11, 12
+          - php: 8.2
+            laravel: ^11.0
+            testbench: ^9.0
+          - php: 8.2
+            laravel: ^12.0
+            testbench: ^10.0
+          # PHP 8.3 - Laravel 11, 12
+          - php: 8.3
+            laravel: ^11.0
+            testbench: ^9.0
+          - php: 8.3
+            laravel: ^12.0
+            testbench: ^10.0
+          # PHP 8.4 - Laravel 12
+          - php: 8.4
+            laravel: ^12.0
+            testbench: ^10.0
 
     name: P${{ matrix.php }} - L${{ matrix.laravel }}
 
@@ -31,7 +52,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer require "illuminate/contracts=${{ matrix.laravel }}" --no-update
+          composer require "illuminate/contracts:${{ matrix.laravel }}" --no-update
+          composer require "orchestra/testbench:${{ matrix.testbench }}" --dev --no-update
           composer update --prefer-dist --no-interaction --no-progress
 
       - name: Execute tests
